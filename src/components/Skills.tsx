@@ -80,7 +80,7 @@ export default function SkillsSection() {
       <div className="absolute inset-0 bg-[#021c1E] opacity-75"></div>
 
       <div className={`max-w-4xl text-center relative z-10 ${exo.className}`}>
-      <motion.div
+      <motion.h2
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 2, delay: 1 }} // Aparece después del título
@@ -91,7 +91,7 @@ export default function SkillsSection() {
           Explora mi trayectoria a través de <span className="text-[#78D6C6]">habilidades técnicas</span>,  
           <span className="text-[#78D6C6]">certificaciones</span> y <span className="text-[#78D6C6]">estudios</span>.
         </p>
-        </motion.div>
+        </motion.h2>
       </div>
 
     
@@ -117,15 +117,15 @@ export default function SkillsSection() {
                 }`}
               >
                 {activeTab === "tech" ? (
-                  <div>
+                  <>
                     <span className="text-4xl md:text-5xl">{item.icon}</span>
                     <p className={`mt-2 text-lg font-semibold text-center ${exo.className}`}>{item.name}</p>
-                  </div>
+                  </>
                 ) : (
-                  <div>
+                  <>
                     <img src={item.image} alt={item.name} className="w-24 h-16 md:w-28 md:h-20 object-contain" />
                     <p className={`mt-2 text-lg font-semibold text-center ${exo.className}`}>{item.name}</p>
-                  </div>
+                  </>
                 )}
               </motion.div>
             ))}
