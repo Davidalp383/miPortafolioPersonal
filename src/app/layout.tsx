@@ -1,4 +1,3 @@
-import Navbar from "@/components/navbar";
 import "./globals.css"; // Asegúrate de importar Tailwind
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

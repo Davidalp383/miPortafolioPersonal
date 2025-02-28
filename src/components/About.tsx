@@ -1,72 +1,112 @@
-"use client";
-import { motion } from "framer-motion";
+'use client';
 
-const AboutMe = () => {
+import { motion } from "framer-motion";
+import Image from "next/image";
+
+export default function About() {
   return (
-    <section id="about" className="bg-[#0D1117] text-white py-20">
-      <div className="container mx-auto px-6 md:px-12 lg:px-20 flex flex-col md:flex-row items-center">
-        {/* Imagen */}
-        <motion.div
-          className="w-full md:w-1/3 flex justify-center mb-8 md:mb-0"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
+    <div className="bg-[#021c1E] text-white flex justify-center items-center min-h-screen p-4 relative">
+      {/* Fondo */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: "url('/fondo2.jpg')" }}
+      ></div>
+      <div className="absolute inset-0 bg-[#021c1E] opacity-75"></div>
+
+      <div className="max-w-3xl w-full flex flex-col items-center relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: -50 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ duration: 1 }}
+          className="w-full flex items-center"
         >
-          <img
-            src="/profile.png"
-            alt="Desarrollador Full Stack"
-            className="w-64 h-64 rounded-full border-4 border-green-400 shadow-lg"
-          />
+          {/* Foto de perfil */}
+          <div className="w-1/3 flex justify-center">
+            <motion.div 
+              initial={{ scale: 0 }} 
+              animate={{ scale: 1 }} 
+              transition={{ duration: 1, ease: "easeOut" }}
+              className=" drop-shadow-[0_0_8px_rgba(111,185,143,0.5)] -w-32 h-42s bg-gray-900 rounded-3xl overflow-hidden flex items-center justify-center -ml-16 mt-28  border-4 border-[#6FB98F]"
+            >
+              <Image
+                src="/foto.png"
+                alt="Profile Picture"
+                width={228}
+                height={228}
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+          </div>
+          {/* Información personal */}
+          <div className="w-2/3 text-left">
+            <h2 className="text-4xl font-extrabold mt-1 text-center"> <span className="text-4x font-extrabold text-[#6FB98F] drop-shadow-[0_0_8px_rgba(111,185,143,0.5)] text-center">DavidaLp</span> - David Alejandro Lopez Sanchez</h2>
+            <p className="text-gray-300 font-bold mt-1 text-lg text-center">
+              En constante <span className="text-[#78D6C6]">evolución</span>, apasionado por la <span className="text-[#78D6C6]">tecnología</span> y la creación de <span className="text-[#78D6C6]">soluciones innovadoras</span>. Persistente ante los <span className="text-[#78D6C6]">desafíos</span>, con una mentalidad <span className="text-[#78D6C6]">analítica</span> y una <span className="text-[#78D6C6]">creatividad</span> que impulsa la <span className="text-[#78D6C6]">resolución de problemas</span>. Siempre en busca de mejorar mis <span className="text-[#78D6C6]">habilidades</span> y explorar nuevas <span className="text-[#78D6C6]">herramientas</span> para construir <span className="text-[#78D6C6]">aplicaciones eficientes</span> y <span className="text-[#78D6C6]">escalables</span>.
+            </p>
+
+
+          </div>
         </motion.div>
 
-        {/* Texto */}
-        <motion.div
-          className="w-full md:w-2/3 text-center md:text-left"
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
+        {/* Sección de estadísticas */}
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="w-fit grid grid-cols-3 gap-4 -mr-52 mb-20 -mt-11 text-center"
         >
-          <h2 className="text-4xl font-bold text-green-400">Sobre Mí</h2>
-          <p className="mt-4 text-gray-300 text-lg leading-relaxed">
-            Soy un <span className="text-blue-400 font-semibold">Desarrollador Full Stack</span> apasionado por la 
-            creación de aplicaciones web eficientes, escalables e innovadoras. Me especializo en tecnologías modernas
-            como <span className="text-green-400 font-semibold">React, Next.js, Node.js y TypeScript</span>, combinando 
-            <span className="text-blue-400 font-semibold"> frontend y backend</span> para crear experiencias impactantes.
-          </p>
+          <div className="bg-gray-900 border-2 border-[#78D6C6] text-[#78D6C6] p-4 rounded-lg drop-shadow-[0_0_8px_rgba(111,185,143,0.5)]">
+            <p className="text-2xl font-bold">0</p>
+            <p className="text-xl text-gray-400">Proyectos</p>
+          </div>
+          <div className="bg-gray-900 border-2 border-[#78D6C6] text-[#78D6C6] p-4 rounded-lg drop-shadow-[0_0_8px_rgba(111,185,143,0.5)]">
+            <p className="text-2xl font-bold">0</p>
+            <p className="text-gray-400 text-xl">Certificates</p>
+          </div>
+          <div className="flex gap-3 flex-col w-36">
 
-          <p className="mt-4 text-gray-300 text-lg leading-relaxed">
-            Mi enfoque se basa en la <span className="text-green-400 font-semibold">arquitectura limpia</span>, el 
-            <span className="text-blue-400 font-semibold"> rendimiento óptimo</span> y la <span className="text-green-400 font-semibold">seguridad</span>. 
-            Siempre busco mejorar mis habilidades y enfrentar nuevos retos tecnológicos.
-          </p>
-
-          {/* Tecnologías */}
-          <div className="mt-6">
-            <h3 className="text-2xl font-semibold text-blue-400">Stack Tecnológico</h3>
-            <div className="mt-3 flex flex-wrap gap-4 justify-center md:justify-start">
-              <span className="px-4 py-2 bg-blue-600 text-white rounded-lg">JavaScript</span>
-              <span className="px-4 py-2 bg-green-600 text-white rounded-lg">Node.js</span>
-              <span className="px-4 py-2 bg-blue-400 text-white rounded-lg">React</span>
-              <span className="px-4 py-2 bg-gray-700 text-white rounded-lg">Next.js</span>
-              <span className="px-4 py-2 bg-yellow-500 text-white rounded-lg">TypeScript</span>
-              <span className="px-4 py-2 bg-purple-500 text-white rounded-lg">MongoDB</span>
-              <span className="px-4 py-2 bg-red-500 text-white rounded-lg">PostgreSQL</span>
+              <motion.button 
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                className="border-2 -mr-14 border-[#78D6C6] text-[#78D6C6] px-4 py-2 rounded-lg font-bold text-lg bg-transparent transition  hover:text-[#2C7873]"
+              >
+                Download CV
+              </motion.button>
+              <motion.button 
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                className="border-2 -mr-14 border-[#78D6C6] text-[#78D6C6] px-4 py-2 rounded-lg font-bold text-sm bg-transparent transition  hover:text-[#2C7873]"
+              >
+                View Projects
+              </motion.button>
             </div>
-          </div>
-
-          {/* Botón Contacto */}
-          <div className="mt-8">
-            <a
-              href="#contact"
-              className="px-6 py-3 text-lg font-semibold bg-green-500 text-white rounded-lg hover:bg-green-700 transition-all"
-            >
-              Contáctame
-            </a>
-          </div>
         </motion.div>
       </div>
-    </section>
+      <div className="relative right-6 top-40 transform -translate-y-1/2 text-center ml-12 ">
+  <h3 className="text-3xl font-extrabold text-[#6FB98F] -ml-2 mb-6 border-b-2  border-[#78D6C6] drop-shadow-[0_0_8px_rgba(111,185,143,0.5)]">Mi cultura Personal</h3>
+  <motion.div 
+    initial={{ opacity: 0, y: 50 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1, delay: 0.7 }}
+    className="w-fit grid grid-cols-1 gap-3 ml-2 text-center mb-2"
+  >
+    <div className="bg-gray-900 p-2 border-2 border-[#78D6C6] bg-transparent rounded-lg">
+      <p className="text-sm font-bold">Disfruto una vida activa siempre</p>
+    </div>
+    <div className="bg-gray-900 p-2 rounded-lg border-2 border-[#78D6C6] bg-transparent">
+      <p className="text-sm font-bold">Me encanta leer constantemente</p>
+    </div>
+    <div className="bg-gray-900 p-2 rounded-lg border-2 border-[#78D6C6] bg-transparent">
+      <p className="text-sm font-bold">Creo contenido digital auténtico</p>
+    </div>
+    <div className="bg-gray-900 p-2 rounded-lg border-2 border-[#78D6C6] bg-transparent">
+      <p className="text-sm font-bold">Me apasiona la guitarra y el piano</p>
+    </div>
+    <div className="bg-gray-900 p-2 rounded-lg border-2 border-[#78D6C6] bg-transparent">
+      <p className="text-sm font-bold">Amo aprender idiomas diversos</p>
+    </div>
+  </motion.div>
+      </div>
+    </div>
   );
-};
-
-export default AboutMe;
+}
