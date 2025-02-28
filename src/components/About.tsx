@@ -1,5 +1,6 @@
 'use client';
 
+import Proyectos from '../components/Proyectos';
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -65,20 +66,24 @@ export default function About() {
           </div>
           <div className="flex gap-3 flex-col w-36">
 
-              <motion.button 
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                className="border-2 -mr-14 border-[#78D6C6] text-[#78D6C6] px-4 py-2 rounded-lg font-bold text-lg bg-transparent transition  hover:text-[#2C7873]"
-              >
-                Download CV
-              </motion.button>
-              <motion.button 
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                className="border-2 -mr-14 border-[#78D6C6] text-[#78D6C6] px-4 py-2 rounded-lg font-bold text-sm bg-transparent transition  hover:text-[#2C7873]"
-              >
-                View Projects
-              </motion.button>
+          <motion.a
+            href="/ruta-del-cv.pdf" // Cambia la ruta por la correcta
+            download
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className="border-2 -mr-14 border-[#78D6C6] text-[#78D6C6] px-4 py-2 rounded-lg font-bold text-lg bg-transparent transition hover:text-[#2C7873]"
+          >
+            Download CV
+          </motion.a>
+          <motion.a
+            href="../components/Proyectos.tsx"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className="border-2 -mr-14 border-[#78D6C6] text-[#78D6C6] px-4 py-2 rounded-lg font-bold text-sm bg-transparent transition hover:text-[#2C7873]"
+          >
+            Ver Linkdln
+          </motion.a>
+
             </div>
         </motion.div>
       </div>

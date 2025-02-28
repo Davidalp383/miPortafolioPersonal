@@ -79,24 +79,22 @@ export default function SkillsSection() {
       ></div>
       <div className="absolute inset-0 bg-[#021c1E] opacity-75"></div>
 
-      <motion.h2
+      <div className={`max-w-4xl text-center relative z-10 ${exo.className}`}>
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 2, delay: 1 }} // Aparece después del título
         className="text-gray-300 mt-2 text-lg font-bold"
       >
-      <div className={`max-w-4xl text-center relative z-10 ${exo.className}`}>
         <h2 className="text-4xl text-[#6FB98F] font-extrabold">Conoce mis Habilidades y Estudios</h2>
         <p className="text-gray-300 mt-2 text-lg font-bold">
           Explora mi trayectoria a través de <span className="text-[#78D6C6]">habilidades técnicas</span>,  
           <span className="text-[#78D6C6]">certificaciones</span> y <span className="text-[#78D6C6]">estudios</span>.
         </p>
+        </motion.div>
       </div>
-      </motion.h2>
 
-      
-
-
+    
       <div className="flex justify-center mt-6 space-x-4 relative z-10">
         <button onClick={() => setActiveTab("tech")} className={`px-6 py-3 border-2 border-[#78D6C6] rounded-lg text-lg font-semibold transition-all ${activeTab === "tech" ? "bg-[#6FB98F] scale-105 text-black" : "bg-transparent text-white"}`}>Tech Stack</button>
         <button onClick={() => setActiveTab("cert")} className={`px-6 py-3 border-2 border-[#78D6C6] rounded-lg text-lg font-semibold transition-all ${activeTab === "cert" ? "bg-[#6FB98F] scale-105 text-black" : "bg-transparent text-white"}`}>Certifications</button>
@@ -119,15 +117,15 @@ export default function SkillsSection() {
                 }`}
               >
                 {activeTab === "tech" ? (
-                  <>
+                  <div>
                     <span className="text-4xl md:text-5xl">{item.icon}</span>
                     <p className={`mt-2 text-lg font-semibold text-center ${exo.className}`}>{item.name}</p>
-                  </>
+                  </div>
                 ) : (
-                  <>
+                  <div>
                     <img src={item.image} alt={item.name} className="w-24 h-16 md:w-28 md:h-20 object-contain" />
                     <p className={`mt-2 text-lg font-semibold text-center ${exo.className}`}>{item.name}</p>
-                  </>
+                  </div>
                 )}
               </motion.div>
             ))}
